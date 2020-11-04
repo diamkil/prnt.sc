@@ -5,23 +5,25 @@ import Image from '@/views/Image.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/:year/:month/:day/:time',
-    name: 'Image',
-    component: Image
-  }
-]
+export function createRouter() {
+    const routes = [
+      {
+        path: '/',
+        name: 'Home',
+        component: Home
+      },
+      {
+        path: '/:year/:month/:day/:time',
+        name: 'Image',
+        component: Image
+      }
+    ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+    const router = new VueRouter({
+      mode: 'history',
+      base: process.env.BASE_URL,
+      routes
+    })
 
-export default router
+    return router;
+}

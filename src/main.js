@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import { createRouter } from './router'
 
 // Bootstrap
 import BootstrapVue from 'bootstrap-vue'
@@ -10,7 +10,33 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
-new Vue({
+export async function createApp ({
+          beforeApp = () => {},
+          afterApp = () => {}
+        } = {}) {
+          const router = createRouter()
+          
+          
+
+          await beforeApp({
+            router,
+            
+            
+          })
+
+          const app = new Vue({
   router,
   render: h => h(App)
-}).$mount('#app')
+})
+
+          const result = {
+            app,
+            router,
+            
+            
+          }
+
+          await afterApp(result)
+
+          return result
+        }
