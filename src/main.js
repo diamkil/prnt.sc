@@ -24,7 +24,6 @@ export async function createApp ({
           const router = createRouter()
           
           
-
           await beforeApp({
             router,
             

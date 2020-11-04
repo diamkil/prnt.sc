@@ -20,6 +20,9 @@ export default context => {
       context.rendered = () => {
 
       }
+
+      context.meta = app.$meta()
+      
       resolve(app)
     }, reject)
   })
