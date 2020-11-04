@@ -6,8 +6,8 @@ COPY package.json ./
 COPY yarn.lock ./
 
 RUN apt update
-RUN apt upgrade
-RUN apt install xsel
+RUN apt upgrade -y
+RUN apt install -y xsel
 
 RUN yarn install
 
