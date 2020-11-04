@@ -46,8 +46,16 @@ export default {
             const finalName = fileHour + ':' + fileMinute + ':' + fileSecond
             return finalName
         }
+    },
+    metaInfo() {
+        return {
+            meta: [
+                {property: 'og:title', content: this.file.fileName},
+                {property: 'og:site_name', content: 'diamkil\'s Img Website'},
+                {property: 'og:type', content: 'website'},
+                {property: 'og:image', content: this.file.fileLocation}
+            ]
+        }
     }
 }
-
-// /:year/:month/:day/:time
 </script>

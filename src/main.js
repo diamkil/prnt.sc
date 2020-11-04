@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueMeta from 'vue-meta'
 import { createRouter } from './router'
+
+Vue.use(VueMeta, {
+  keyName: 'head',
+  refreshOnceOnNavigation: true
+})
+
 
 // Bootstrap
 import BootstrapVue from 'bootstrap-vue'

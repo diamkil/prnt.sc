@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueMeta from 'vue-meta'
 import Home from '@/views/Home.vue'
 import Image from '@/views/Image.vue'
 
 Vue.use(VueRouter)
+Vue.use(VueMeta)
 
 export function createRouter() {
     const routes = [
