@@ -7,12 +7,17 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn ssr:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+yarn ssr:build
+```
+
+### Starts the production server
+```
+yarn ssr:start
 ```
 
 ### Lints and fixes files
