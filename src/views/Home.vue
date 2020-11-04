@@ -26,3 +26,16 @@
   </div>
 </template>
 
+<script>
+export default {
+    metaInfo() {
+        return {
+            meta: [
+                {property: 'og:title', content: 'Home'},
+                {property: 'og:site_name', content: 'diamkil\'s Img Website'},
+                {property: 'og:type', content: 'website'}
+            ]
+        }
+    }
+}
+</script>
