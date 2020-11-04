@@ -21,7 +21,7 @@
     <h2>diamkil's Image Server!!</h2>
     <p>
       The images are sent with SharexX on a NAS server and are shown here on the website.<br>
-      The website was create from A to Z by diamkil using <a href="https://vuejs.org/">Vue.JS</a>, <a href="https://router.vuejs.org/">Vue-Router</a>, <a href="https://vue-meta.nuxtjs.org/">Vue-Meta</a> and <a href="https://bootstrap-vue.org/">Bootstrap-Vue</a>
+      The website was create from A to Z by diamkil using <a href="https://vuejs.org/">Vue.JS</a>, <a href="https://router.vuejs.org/">Vue-Router</a>, <a href="https://vue-meta.nuxtjs.org/">Vue-Meta</a>, <a href="https://github.com/Akryum/vue-cli-plugin-ssr">Vue Server Renderer</a> and <a href="https://bootstrap-vue.org/">Bootstrap-Vue</a>
     </p>
   </div>
 </template>
