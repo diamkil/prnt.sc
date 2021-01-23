@@ -14,7 +14,7 @@
     <h2>Le serveur d'images de diamkil!!</h2>
     <p>
       Les images sont envoyées à partir de ShareX sur un serveur NAS et sont affichées ici sur le site Web.<br>
-      Le Site web a été crée de A à Z par diamkil avec <a href="https://vuejs.org/">Vue.JS</a>, <a href="https://router.vuejs.org/">Vue-Router</a>, <a href="https://vue-meta.nuxtjs.org/">Vue-Meta</a> et <a href="https://bootstrap-vue.org/">Bootstrap-Vue</a>
+      Le Site web a été crée de A à Z par diamkil avec <a href="https://vuejs.org/">Vue.JS</a>, <a href="https://router.vuejs.org/">Vue-Router</a>, <a href="https://vue-meta.nuxtjs.org/">Vue-Meta</a>, <a href="https://github.com/Akryum/vue-cli-plugin-ssr">Vue Server Renderer</a> et <a href="https://bootstrap-vue.org/">Bootstrap-Vue</a>
     </p>
     <br><br><br>
     <h1>EN</h1>

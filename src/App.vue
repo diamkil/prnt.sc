@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>-->
-    <b-container fluid style="padding: 0 50px;">
+    <b-container fluid>
       <router-view/>
     </b-container>
   </div>

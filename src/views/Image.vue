@@ -8,7 +8,7 @@
                 <img 
                 src="https://img.dkil.ca/diamkil.gif"
                 alt="Animated Diamkil"
-                style="height: 50px"
+                id="diamkil-img"
                 >Diamkil's Img Share
             </router-link>
         </h1>
@@ -50,7 +50,7 @@ export default {
     metaInfo() {
         return {
             meta: [
-                {property: 'og:title', content: this.file.fileName},
+                {property: 'og:title', content: `${this.fileName(this.file.fileName)}`},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
                 {property: 'og:type', content: 'website'},
                 {property: 'og:image', content: this.file.fileLocation}
@@ -59,3 +59,8 @@ export default {
     }
 }
 </script>
+<style>
+    #diamkil-img {
+        height: 50px;
+    }
+</style>
