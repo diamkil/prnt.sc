@@ -53,7 +53,10 @@ export default {
                 {property: 'og:title', content: `${this.fileName(this.file.fileName)}`},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
                 {property: 'og:type', content: 'website'},
-                {property: 'og:image', content: this.file.fileLocation}
+                {property: 'og:image', content: this.file.fileLocation},
+                {property: 'og:image:secure_url', content: this.file.fileLocation},
+                {property: 'og:image:width', content: '1280'},
+                {property: 'og:image:height', content: '720'}
             ]
         }
     }
