@@ -61,7 +61,7 @@ export default {
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
                 {property: 'og:image:width', content: '1920'},
                 {property: 'og:image:height', content: '1080'},
-                {property: 'og:description', content: `${this.fileDate(this.file)}`}
+                {property: 'og:description', content: `${this.fileDate(this.file)}` + ' This Website was custom made by diamkil#6969 to work with ShareX and it\'s FOSS'}
             ]
         }
     }
