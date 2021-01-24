@@ -2,7 +2,7 @@
     <div>
         <h1>
             <span class="float-right">
-                Date: {{ fileName(file.fileName) +', ' + file.fileDay +' ' + getMonthName(file.fileMonth) + ' ' + file.fileYear }}
+                Date: {{ fileTime(file.fileName) +', ' + file.fileDay +' ' + getMonthName(file.fileMonth) + ' ' + file.fileYear }}
             </span>
             <router-link class="float-left" to="/" style="text-decoration: none; color: #303030;">
                 <img 
@@ -38,25 +38,30 @@ export default {
             const monthName = this.months[month]
             return monthName
         },
-        fileName(fileName) {
+        fileTime(fileName) {
             const fileHour = fileName.substr(0, 2)
             const fileMinute = fileName.substr(2, 2)
             const fileSecond = fileName.substr(4, 2)
 
             const finalName = fileHour + ':' + fileMinute + ':' + fileSecond
             return finalName
+        },
+        fileDate(file) {
+            const finalName = file.fileDay + ' ' + this.getMonthName(file.fileMonth) + ' ' + file.fileYear
+            return finalName
         }
     },
     metaInfo() {
         return {
             meta: [
-                {property: 'og:title', content: `${this.fileName(this.file.fileName)}`},
+                {property: 'og:title', content: `${this.fileTime(this.file.fileName)}`},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
                 {property: 'og:type', content: 'website'},
                 {property: 'og:image', content: this.file.fileLocation},
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
                 {property: 'og:image:width', content: '1920'},
-                {property: 'og:image:height', content: '1080'}
+                {property: 'og:image:height', content: '1080'},
+                {property: 'og:description', content: `${this.fileDate(this.file)}`}
             ]
         }
     }
