@@ -42,7 +42,9 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: pm2 stop prnt
+        script: |
+          cd /root/github/prnt/
+          pm2 stop prnt
 
     - name: Installing Dependencies on Remote
       uses: appleboy/ssh-action@master
@@ -51,7 +53,9 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: yarn install
+        script: |
+          cd /root/github/prnt/
+          yarn install
 
     - name: Building Website
       uses: appleboy/ssh-action@master
@@ -60,7 +64,9 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: npm run ssr:build
+        script: |
+          cd /root/github/prnt/
+          npm run ssr:build
 
     - name: Deploying
       uses: appleboy/ssh-action@master
@@ -69,4 +75,6 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: pm2 start prnt
+        script: |
+          cd /root/github/prnt/
+          pm2 start prnt
