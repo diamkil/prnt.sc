@@ -55,8 +55,8 @@ export default {
                 {property: 'og:type', content: 'website'},
                 {property: 'og:image', content: this.file.fileLocation},
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
-                {property: 'og:image:width', content: '1280'},
-                {property: 'og:image:height', content: '720'}
+                {property: 'og:image:width', content: '1920'},
+                {property: 'og:image:height', content: '1080'}
             ]
         }
     }
