@@ -39,7 +39,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /root/github/prnt/yarn-i.sh
+        script: /root/github/yarn-i.sh
 
     - name: Building Website
       uses: appleboy/ssh-action@master
@@ -48,7 +48,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /root/github/prnt/vue-build.sh
+        script: /root/github/vue-build.sh
 
     - name: Deploying
       uses: appleboy/ssh-action@master
@@ -57,4 +57,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /root/github/prnt/vue-deploy.sh
+        script: /root/github/vue-deploy.sh
