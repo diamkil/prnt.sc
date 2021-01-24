@@ -9,6 +9,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /root/github/prnt
     steps:
     - uses: actions/checkout@v1
 
@@ -32,6 +35,15 @@ jobs:
         source: "."
         target: "/root/github/prnt"
 
+    - name: Stopping Running prnt
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+        script: pm2 stop prnt
+
     - name: Installing Dependencies on Remote
       uses: appleboy/ssh-action@master
       with:
@@ -39,7 +51,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /bin/bash /root/github/yarn-i.sh
+        script: yarn install
 
     - name: Building Website
       uses: appleboy/ssh-action@master
@@ -48,7 +60,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /bin/bash /root/github/vue-build.sh
+        script: npm run ssr:build
 
     - name: Deploying
       uses: appleboy/ssh-action@master
@@ -57,4 +69,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: /bin/bash /root/github/vue-deploy.sh
+        script: pm2 start prnt
