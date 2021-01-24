@@ -10,7 +10,7 @@
       </router-link>
     </h1>
     <br><br><br><br><br><br>
-    <h1>FR test</h1>
+    <h1>FR</h1>
     <h2>Le serveur d'images de diamkil!!</h2>
     <p>
       Les images sont envoyées à partir de ShareX sur un serveur NAS et sont affichées ici sur le site Web.<br>
