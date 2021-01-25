@@ -12,9 +12,7 @@
                 >Diamkil's Img Share
             </router-link>
         </h1>
-        <a :href="file.fileLocation" target="_blank">
-            <b-img fluid-grow :src="file.fileLocation"/>
-        </a>
+        <div v-html="viewTag(file)"></div>
     </div>
 </template>
 
@@ -29,7 +27,7 @@ export default {
                 fileMonth: this.$route.params.month,
                 fileDay: this.$route.params.day
             },
-            months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+            months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
         }
     },
     methods: {
@@ -49,6 +47,24 @@ export default {
         fileDate(file) {
             const finalName = file.fileDay + ' ' + this.getMonthName(file.fileMonth) + ' ' + file.fileYear
             return finalName
+        },
+        viewTag(file) {
+            var isVideo = require('is-video');
+            const actualFile = 'https://img.dkil.ca/' + file.fileYear + '/' + file.fileMonth + '/' + file.fileDay + '/' + file.fileName
+            if(isVideo(actualFile)) {
+                const fileExt = file.fileName.substr(7, 10)
+                const htmlBlock = '\
+                <video class="container-fluid" id="video-view" controls>\
+                    <source src="' + file.fileLocation + '" type="video/' + fileExt + '"/>\
+                </video>'
+                return htmlBlock
+            } else {
+                const htmlBlock = '\
+                <a href="' + file.fileLocation + '" target="_blank">\
+                    <img class="container-fluid" id="image-view" src="' + file.fileLocation + '"/>\
+                </a>'
+                return htmlBlock
+            }
         }
     },
     metaInfo() {
@@ -70,5 +86,14 @@ export default {
 <style>
     #diamkil-img {
         height: 50px;
+    }
+    #video-view {
+        padding-right: 10%;
+        padding-left: 10%;
+        outline: 0px;
+    }
+    #image-view {
+        padding-right: 10%;
+        padding-left: 10%;
     }
 </style>
