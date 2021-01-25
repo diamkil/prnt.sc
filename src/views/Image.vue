@@ -2,7 +2,7 @@
     <div>
         <h1>
             <span class="float-right">
-                Date: {{ fileTime(file.fileName) +', ' + file.fileDay +' ' + getMonthName(file.fileMonth) + ' ' + file.fileYear }}
+                {{ fileTime(file.fileName) +', ' + file.fileDay +' ' + getMonthName(file.fileMonth) + ' ' + file.fileYear }}
             </span>
             <router-link class="float-left" to="/" style="text-decoration: none; color: #303030;">
                 <img 
