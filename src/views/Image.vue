@@ -64,10 +64,7 @@ export default {
                 </video>'
                 return htmlBlock
             } else {
-                const htmlBlock = '\
-                <a href="' + file.fileLocation + '" target="_blank">\
-                    <img class="container-fluid" id="image-view" src="' + file.fileLocation + '"/>\
-                </a>'
+                const htmlBlock = '<img class="container-fluid" id="image-view" src="' + file.fileLocation + '"/>'
                 return htmlBlock
             }
         }
