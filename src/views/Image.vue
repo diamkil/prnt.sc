@@ -1,15 +1,15 @@
 <template>
     <div>
         <h1>
-            <span class="float-right">
+            <span class="float-right white-text">
                 {{ fileTime(file.fileName) +', ' + file.fileDay +' ' + getMonthName(file.fileMonth) + ' ' + file.fileYear }}
             </span>
             <router-link class="float-left" to="/" style="text-decoration: none; color: #303030;">
                 <img 
                 src="https://img.dkil.ca/diamkil.gif"
                 alt="Animated Diamkil"
-                id="diamkil-img"
-                >Diamkil's Img Share
+                id="logo">
+                <span class="white-text">Diamkil's Img Share</span>
             </router-link>
         </h1>
         <div v-html="viewTag(file)"></div>
@@ -22,7 +22,7 @@ export default {
         return {
             file: {
                 fileName: this.$route.params.time,
-                fileLocation: [ 'https://img.dkil.ca/' + this.$route.params.year + '/' + this.$route.params.month + '/' + this.$route.params.day + '/' + this.$route.params.time ],
+                fileLocation: 'https://img.dkil.ca/' + this.$route.params.year + '/' + this.$route.params.month + '/' + this.$route.params.day + '/' + this.$route.params.time,
                 fileYear: this.$route.params.year,
                 fileMonth: this.$route.params.month,
                 fileDay: this.$route.params.day
@@ -50,8 +50,7 @@ export default {
         },
         viewTag(file) {
             var isVideo = require('is-video');
-            const actualFile = 'https://img.dkil.ca/' + file.fileYear + '/' + file.fileMonth + '/' + file.fileDay + '/' + file.fileName
-            if(isVideo(actualFile)) {
+            if(isVideo(file.fileLocation)) {
                 const fileExt = file.fileName.substr(7, 10)
                 const htmlBlock = '\
                 <video class="container-fluid" id="video-view" controls>\
@@ -83,6 +82,7 @@ export default {
     }
 }
 </script>
+
 <style>
     #diamkil-img {
         height: 50px;
@@ -95,5 +95,11 @@ export default {
     #image-view {
         padding-right: 10%;
         padding-left: 10%;
+    }
+    #logo {
+        height: 50px;
+    }
+    .white-text {
+        color: white;
     }
 </style>
