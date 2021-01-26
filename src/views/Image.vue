@@ -6,10 +6,10 @@
             </span>
             <router-link class="float-left" to="/" style="text-decoration: none; color: #303030;">
                 <img 
-                src="https://img.dkil.ca/diamkil.gif"
-                alt="Animated Diamkil"
+                :src=this.config.logoUrl
+                :alt=this.config.logoAlt
                 id="logo">
-                <span class="white-text">Diamkil's Img Share</span>
+                <span class="white-text">{{ this.config.logoTitle }}</span>
             </router-link>
         </h1>
         <div v-html="viewTag(file)"></div>
@@ -22,19 +22,25 @@ export default {
         return {
             file: {
                 fileName: this.$route.params.time,
-                fileLocation: 'https://img.dkil.ca/' + this.$route.params.year + '/' + this.$route.params.month + '/' + this.$route.params.day + '/' + this.$route.params.time,
+                fileLocation: this.config.imageBackendUrl + '/' + this.$route.params.year + '/' + this.$route.params.month + '/' + this.$route.params.day + '/' + this.$route.params.time,
                 fileYear: this.$route.params.year,
                 fileMonth: this.$route.params.month,
                 fileDay: this.$route.params.day
             },
-            months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthsFr: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthsEn: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         }
     },
     methods: {
         getMonthName(fileMonth) {
             const month = fileMonth-1
-            const monthName = this.months[month]
-            return monthName
+            if(this.config.lang === 'fr') {
+                const monthName = this.monthsFr[month]
+                return monthName
+            } else if(this.config.lang === 'en') {
+                const monthName = this.monthsEn[month]
+                return monthName
+            }
         },
         fileTime(fileName) {
             const fileHour = fileName.substr(0, 2)
@@ -75,7 +81,8 @@ export default {
                 {property: 'og:image', content: this.file.fileLocation},
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
                 {property: 'og:description', content: `${this.fileDate(this.file)}`}
-            ]
+            ],
+            title: this.config.pageTitle + ' | ' + `${this.fileTime(this.file.fileName)}`
         }
     }
 }

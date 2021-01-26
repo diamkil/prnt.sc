@@ -3,10 +3,10 @@
         <h1>
             <router-link class="float-left" to="/" style="text-decoration: none; color: #303030;">
                 <img 
-                src="https://img.dkil.ca/diamkil.gif"
-                alt="Animated Diamkil"
+                :src=this.config.logoUrl
+                :alt=this.config.logoAlt
                 id="logo">
-                <span class="white-text">Diamkil's Img Share</span>
+                <span class="white-text">{{ this.config.logoTitle }}></span>
             </router-link>
         </h1>
         <br><br><br><br><br><br>
@@ -36,7 +36,8 @@ export default {
                 {property: 'og:title', content: 'Home'},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
                 {property: 'og:type', content: 'website'}
-            ]
+            ],
+            title: this.config.pageTitle
         }
     }
 }
