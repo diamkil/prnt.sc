@@ -6,7 +6,7 @@
                 :src=this.config.logoUrl
                 :alt=this.config.logoAlt
                 id="logo">
-                <span class="white-text">{{ this.config.logoTitle }}></span>
+                <span class="white-text">{{ this.config.logoTitle }}</span>
             </router-link>
         </h1>
         <br><br><br><br><br><br>
