@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import VueMeta from 'vue-meta'
 import Home from '@/views/Home.vue'
 import Image from '@/views/Image.vue'
+import Bhwa from '@/views/Bhwa.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueMeta)
@@ -18,6 +19,11 @@ export function createRouter() {
         path: '/:year/:month/:day/:time',
         name: 'Image',
         component: Image
+      },
+      {
+        path: '/bhwa',
+        name: 'Bhwa',
+        component: Bhwa
       }
     ]
 
