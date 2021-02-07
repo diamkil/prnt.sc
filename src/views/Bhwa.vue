@@ -24,7 +24,8 @@ export default {
             meta: [
                 {property: 'og:title', content: 'BHWA!!!'},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
-                {property: 'og:type', content: 'website'}
+                {property: 'og:type', content: 'website'},
+                {property: 'og:image', content: 'https://img.dkil.ca/bhwa.png'}
             ],
             title: this.config.pageTitle
         }
