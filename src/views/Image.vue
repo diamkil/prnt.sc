@@ -71,11 +71,43 @@ export default {
                 return htmlBlock
             }
         },
-        video(file) {
-            const fileExt = file.substr(7, 10)
-            const final = 'video/' + fileExt
-            return final
+        isVideoMetaProperty1(file) {
+            const isVideo = require('is-video')
+            if(isVideo(file.fileName)) {
+                const type = 'og:video:type'
+                const final = type.toString()
+                return final
+            } else {
+                const type = 'og:image:secure_url'
+                const final = type.toString()
+                return final
+            }
         },
+        isVideoMetaContent1(file) {
+            const isVideo = require('is-video')
+            if(isVideo(file.fileName)) {
+                const fileExt = file.fileName.substr(7, 10)
+                const type = 'video/' + fileExt
+                const final = type.toString()
+                return final
+            } else {
+                const type = file.fileLocation
+                const final = type.toString()
+                return final
+            }
+        },
+        isVideoMetaProperty2(file) {
+            const isVideo = require('is-video')
+            if(isVideo(file.fileName)) {
+                const type = 'og:video'
+                const final = type.toString()
+                return final
+            } else {
+                const type = 'og:image'
+                const final = type.toString()
+                return final
+            }
+        }
     },
     metaInfo() {
         return {
@@ -83,10 +115,8 @@ export default {
                 {property: 'og:title', content: `${this.fileTime(this.file.fileName)}`},
                 {property: 'og:site_name', content: 'diamkil\'s Img Website'},
                 {property: 'og:type', content: 'website'},
-                {property: 'og:image', content: this.file.fileLocation},
-                {property: 'og:image:secure_url', content: this.file.fileLocation},
-                {property: 'og:video', content: this.file.fileLocation},
-                {property: 'og:video:type', content: `${this.video(this.file.fileName)}`},
+                {property: `${this.isVideoMetaProperty2(this.file)}`, content: `${this.file.fileLocation}`},
+                {property: `${this.isVideoMetaProperty1(this.file)}`, content: `${this.isVideoMetaContent1(this.file)}`},
                 {property: 'og:description', content: `${this.fileDate(this.file)}`}
             ],
             title: this.config.pageTitle + ' | ' + `${this.fileTime(this.file.fileName)}`
