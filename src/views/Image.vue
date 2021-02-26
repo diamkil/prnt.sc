@@ -70,7 +70,11 @@ export default {
                 </a>'
                 return htmlBlock
             }
-        }
+        },
+        fileExt(file) {
+            const fileExt = file.substr(7, 10)
+            return fileExt
+        },
     },
     metaInfo() {
         return {
@@ -80,6 +84,8 @@ export default {
                 {property: 'og:type', content: 'website'},
                 {property: 'og:image', content: this.file.fileLocation},
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
+                {property: 'og:video', content: this.file.fileLocation},
+                {property: 'og:video:type', content: `${this.fileExt(this.file.fileName)}`},
                 {property: 'og:description', content: `${this.fileDate(this.file)}`}
             ],
             title: this.config.pageTitle + ' | ' + `${this.fileTime(this.file.fileName)}`
