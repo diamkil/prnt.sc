@@ -71,9 +71,10 @@ export default {
                 return htmlBlock
             }
         },
-        fileExt(file) {
+        video(file) {
             const fileExt = file.substr(7, 10)
-            return fileExt
+            const final = 'video/' + fileExt
+            return final
         },
     },
     metaInfo() {
@@ -85,7 +86,7 @@ export default {
                 {property: 'og:image', content: this.file.fileLocation},
                 {property: 'og:image:secure_url', content: this.file.fileLocation},
                 {property: 'og:video', content: this.file.fileLocation},
-                {property: 'og:video:type', content: `${this.fileExt(this.file.fileName)}`},
+                {property: 'og:video:type', content: `${this.video(this.file.fileName)}`},
                 {property: 'og:description', content: `${this.fileDate(this.file)}`}
             ],
             title: this.config.pageTitle + ' | ' + `${this.fileTime(this.file.fileName)}`
