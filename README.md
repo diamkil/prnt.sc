@@ -1,4 +1,5 @@
 # sharex
+# Deprecated. [Check the new one out](https://github.com/diamkil/screenshots)
 
 ## Project setup
 ```
